@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A clean, responsive blog application built with HTML, CSS and JavaScript." />
+  <title>InkSpace — Stories that matter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" data-view="home" aria-label="InkSpace home"><span class="brand-mark">i</span> inkspace<span class="brand-dot">.</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <button class="nav-link active" data-view="home">Explore</button>
+      <button class="nav-link" data-view="dashboard">Dashboard</button>
+      <button class="nav-link" data-view="create">Write a story <span class="plus">＋</span></button>
+    </nav>
+    <div class="header-actions" id="headerActions">
+      <button class="text-button" data-view="login">Log in</button>
+      <button class="button button-dark button-small" data-view="register">Get started</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="homeView" class="view">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-line"></span> A HOME FOR CURIOUS MINDS</span>
+          <h1>Ideas worth<br><em>sharing.</em></h1>
+          <p>Thoughtful stories, fresh perspectives, and practical ideas from people who love to create.</p>
+          <div class="hero-actions">
+            <button class="button button-dark" data-view="create">Start writing <span>↗</span></button>
+            <button class="button button-light" id="exploreButton">Explore stories</button>
+          </div>
+          <div class="hero-note"><span class="avatar-stack"><i>J</i><i>M</i><i>A</i></span><span>Join a community of curious minds</span></div>
+        </div>
+        <div class="hero-art" aria-label="Decorative editorial illustration">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="art-card">
+            <span class="art-label">THE CREATIVE JOURNAL</span>
+            <div class="art-sun"></div><div class="art-hill hill-back"></div><div class="art-hill hill-front"></div>
+            <span class="art-caption">Make room<br>for wonder.</span>
+            <span class="art-number">NO. 01 / 2026</span>
+          </div>
+          <span class="floating-star star-one">✳</span><span class="floating-star star-two">✦</span>
+          <span class="art-side-note">READ · REFLECT · REPEAT</span>
+        </div>
+      </section>
+
+      <section class="content-section" id="storiesSection">
+        <div class="section-heading">
+          <div><span class="eyebrow">THE LATEST</span><h2>Stories to get lost in<span class="brand-dot">.</span></h2></div>
+          <div class="filters">
+            <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search stories..." aria-label="Search stories"></label>
+            <select id="categoryFilter" aria-label="Filter by category"><option value="All">All topics</option><option>Technology</option><option>Design</option><option>Lifestyle</option><option>Learning</option></select>
+          </div>
+        </div>
+        <div id="blogGrid" class="blog-grid"></div>
+        <p id="emptyState" class="empty-state hidden">No stories found. Try another search or category.</p>
+      </section>
+      <section class="newsletter">
+        <div><span class="eyebrow">A LITTLE INSPIRATION</span><h2>Good ideas, delivered.</h2><p>Get the best stories in your inbox. No noise, just thoughtful reads.</p></div>
+        <form id="newsletterForm" class="newsletter-form"><input type="email" placeholder="Your email address" required aria-label="Your email address"><button class="button button-dark">Subscribe ↗</button></form>
+      </section>
+    </section>
+
+    <section id="loginView" class="view auth-view hidden">
+      <div class="auth-card"><span class="eyebrow">WELCOME BACK</span><h1>Good to see<br><em>you again.</em></h1><p>Log in to manage your stories and keep creating.</p>
+        <form id="loginForm" class="form-stack"><label>Email address<input name="email" type="email" placeholder="you@example.com" required></label><label>Password<input name="password" type="password" placeholder="At least 6 characters" minlength="6" required></label><button class="button button-dark button-full">Log in</button></form>
+        <p class="auth-switch">New to InkSpace? <button class="inline-link" data-view="register">Create an account</button></p>
+      </div>
+    </section>
+
+    <section id="registerView" class="view auth-view hidden">
+      <div class="auth-card"><span class="eyebrow">YOUR NEXT CHAPTER</span><h1>Make space<br>for <em>your ideas.</em></h1><p>Create an account and publish your first story.</p>
+        <form id="registerForm" class="form-stack"><label>Your name<input name="name" type="text" placeholder="Your name" required minlength="2"></label><label>Email address<input name="email" type="email" placeholder="you@example.com" required></label><label>Password<input name="password" type="password" placeholder="At least 6 characters" minlength="6" required></label><button class="button button-dark button-full">Create account</button></form>
+        <p class="auth-switch">Already a member? <button class="inline-link" data-view="login">Log in</button></p>
+      </div>
+    </section>
+
+    <section id="dashboardView" class="view dashboard-view hidden">
+      <div class="page-heading"><div><span class="eyebrow">YOUR WORKSPACE</span><h1>Your dashboard<span class="brand-dot">.</span></h1><p>Keep track of the stories you have created.</p></div><button class="button button-dark" data-view="create">＋ New story</button></div>
+      <div class="stats-row"><div class="stat-card"><span>YOUR STORIES</span><strong id="storyCount">0</strong></div><div class="stat-card"><span>STATUS</span><strong>Creator</strong></div><div class="stat-card"><span>COMMUNITY</span><strong>InkSpace</strong></div></div>
+      <div class="dashboard-list"><h2>Manage your stories</h2><div id="dashboardBlogs"></div><p id="dashboardEmpty" class="empty-state">You haven't published a story yet. Start with your first idea.</p></div>
+    </section>
+
+    <section id="createView" class="view editor-view hidden">
+      <div class="editor-wrap"><span class="eyebrow">THE WRITER'S ROOM</span><h1 id="editorTitle">Create a story<span class="brand-dot">.</span></h1><p class="editor-intro">Every great story starts with a first sentence.</p>
+        <form id="blogForm" class="form-stack editor-form">
+          <input type="hidden" name="blogId">
+          <label>Story title<input name="title" type="text" placeholder="Give your story a memorable title..." maxlength="90" required></label>
+          <div class="form-two"><label>Category<select name="category" required><option value="Technology">Technology</option><option value="Design">Design</option><option value="Lifestyle">Lifestyle</option><option value="Learning">Learning</option></select></label><label>Read time<select name="readTime"><option>3 min read</option><option>4 min read</option><option>5 min read</option><option>6 min read</option><option>8 min read</option><option>10 min read</option></select></label></div>
+          <label>Short description<textarea name="excerpt" rows="2" maxlength="180" placeholder="A one or two sentence preview..." required></textarea></label>
+          <label>Your story<textarea name="content" rows="10" placeholder="Start writing here..." required></textarea></label>
+          <div class="editor-actions"><button type="button" class="button button-light" data-view="dashboard">Cancel</button><button class="button button-dark">Publish story ↗</button></div>
+          <p class="form-hint">Demo project: stories are saved in this browser using local storage.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="articleView" class="view article-view hidden"><button class="back-link" data-view="home">← Back to stories</button><article id="articleContent"></article></section>
+  </main>
+
+  <footer class="site-footer"><a class="brand" href="#" data-view="home"><span class="brand-mark">i</span> inkspace<span class="brand-dot">.</span></a><span>Made for ideas that deserve a little space.</span><span>© 2026 InkSpace</span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
