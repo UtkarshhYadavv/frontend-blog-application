@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "1a763a0e-6639-4688-9c1a-c9ca023f8c18",
+    "title": "Title: My Journey into Backend  Category: Learning Read time: 3 min read Describe",
+    "category": "Technology",
+    "readTime": "3 min read",
+    "excerpt": "Title: My Journey into Backend Development\nCategory: Learning\nRead time: 3 min read\nDescription: Learning how backend development connects websites to servers and databases.",
+    "content": "Title: My Journey into Backend Development\nCategory: Learning\nRead time: 3 min read\nDescription: Learning how backend development connects websites to servers and databases.\nContent: Today I successfully built my first backend using Node.js and Express.js. I learned how APIs work, how users can register and log in, and how the frontend communicates with the backend. This is an exciting step in my web development journey.",
+    "authorName": "Utkarsh Yadav",
+    "author": "rdevsuchandra1999@gmail.com",
+    "owner": "30a943e2-9ade-4926-95e2-4de223161ddb",
+    "date": "Nov 1, 2026",
+    "createdAt": "2026-11-01T14:30:31.325Z",
+    "updatedAt": "2026-11-01T14:31:34.977Z"
+  }
+]
